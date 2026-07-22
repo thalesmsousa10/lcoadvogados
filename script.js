@@ -274,66 +274,8 @@ if (preloader) {
 }
 
 // ==========================================================================
-// 8. Cursor Personalizado Dourado (apenas em dispositivos com mouse)
+// 8. Cursor Tradicional Padrao
 // ==========================================================================
-if (window.matchMedia('(pointer: fine)').matches) {
-  const cursorDot  = document.createElement('div');
-  const cursorRing = document.createElement('div');
-  cursorDot.classList.add('cursor-dot');
-  cursorRing.classList.add('cursor-ring');
-  document.body.appendChild(cursorDot);
-  document.body.appendChild(cursorRing);
-
-  let mouseX = 0, mouseY = 0;
-  let ringX  = 0, ringY  = 0;
-
-  // Dot segue o mouse em tempo real
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorDot.style.left = `${mouseX}px`;
-    cursorDot.style.top  = `${mouseY}px`;
-  });
-
-  // Ring segue com leve atraso (efeito trailing)
-  const animateRing = () => {
-    ringX += (mouseX - ringX) * 0.1;
-    ringY += (mouseY - ringY) * 0.1;
-    cursorRing.style.left = `${ringX}px`;
-    cursorRing.style.top  = `${ringY}px`;
-    requestAnimationFrame(animateRing);
-  };
-  animateRing();
-
-  // Expandir cursor em elementos interativos
-  const interactiveEls = document.querySelectorAll(
-    'a, button, .solution-card, .lawyer-card, .client-card, .panes__vertical-trigger, label, input, textarea'
-  );
-  interactiveEls.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursorDot.classList.add('cursor-hover');
-      cursorRing.classList.add('cursor-hover');
-    });
-    el.addEventListener('mouseleave', () => {
-      cursorDot.classList.remove('cursor-hover');
-      cursorRing.classList.remove('cursor-hover');
-    });
-  });
-
-  // Efeito de clique
-  document.addEventListener('mousedown', () => cursorDot.classList.add('cursor-clicking'));
-  document.addEventListener('mouseup',   () => cursorDot.classList.remove('cursor-clicking'));
-
-  // Ocultar ao sair da janela
-  document.addEventListener('mouseleave', () => {
-    cursorDot.style.opacity  = '0';
-    cursorRing.style.opacity = '0';
-  });
-  document.addEventListener('mouseenter', () => {
-    cursorDot.style.opacity  = '1';
-    cursorRing.style.opacity = '1';
-  });
-}
 
 // ==========================================================================
 // 9. Efeito Tilt 3D nos Cards ao Hover
