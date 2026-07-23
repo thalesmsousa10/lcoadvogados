@@ -2037,22 +2037,54 @@ textarea:focus-visible {
     width: 100% !important;
   }
 
-  /* Centralização e Ajustes de Formulario e Icones de Contato no Mobile */
+  /* Centralização e Ajustes de Formulário e Ícones de Contato no Mobile */
   .contact-grid {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
+    display: flex !important;
+    flex-direction: column !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
+    gap: 2.5rem !important;
+    box-sizing: border-box !important;
   }
 
+  .contact-grid > div,
   .contact-form-wrapper {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 2.25rem 1.5rem !important;
     box-sizing: border-box !important;
     margin: 0 auto !important;
-    border-radius: var(--border-radius-md);
+    transform: none !important;
+  }
+
+  .contact-form-wrapper {
+    padding: 2rem 1.25rem !important;
+    border-radius: var(--border-radius-md) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .contact-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea,
+  .contact-form .btn {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .info-items {
