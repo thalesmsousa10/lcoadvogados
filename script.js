@@ -222,8 +222,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // Inicializar no primeiro painel
-    updatePanesLayout(0);
+    // Verificar se há parâmetro ?pilar=X na URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const pilarParam = urlParams.get('pilar');
+    let initialIndex = 0;
+    if (pilarParam && !isNaN(pilarParam)) {
+      const pilarNum = parseInt(pilarParam, 10);
+      if (pilarNum >= 1 && pilarNum <= totalPanes) {
+        initialIndex = pilarNum - 1;
+      }
+    }
+
+    // Inicializar no painel correspondente
+    if (!window.matchMedia("(max-width: 991px)").matches) {
+      updatePanesLayout(initialIndex);
+    } else {
+      paneItems.forEach(i => i.classList.remove('active'));
+      if (paneItems[initialIndex]) paneItems[initialIndex].classList.add('active');
+    }
+
+    // Se houve parâmetro pilar, rolar suavemente até a seção dos painéis
+    if (pilarParam) {
+      setTimeout(() => {
+        panesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 350);
+    }
 
     // Adicionar eventos de clique nos triggers
     paneItems.forEach((item, index) => {
