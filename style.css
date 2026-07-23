@@ -711,13 +711,22 @@ textarea:focus-visible {
 
 .solution-icon {
   font-size: 2.5rem;
-  color: var(--color-gold);
-  margin-bottom: 2rem;
-  transition: transform var(--transition-normal);
+  color: #a37c3f;
+  margin-bottom: 1.75rem;
+  transition: transform var(--transition-normal), color var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution-icon i {
+  font-size: 2.5rem;
+  color: inherit;
 }
 
 .solution-card:hover .solution-icon {
   transform: scale(1.1);
+  color: var(--color-gold);
 }
 
 .solution-card h3 {
