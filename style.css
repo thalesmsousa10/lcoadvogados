@@ -1047,9 +1047,21 @@ textarea:focus-visible {
   transition: transform var(--transition-normal), border-color var(--transition-normal);
 }
 
-.info-item:hover .info-icon {
+.info-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.info-item-link:hover .info-icon {
   transform: translateY(-3px);
   border-color: var(--color-gold);
+  background-color: rgba(194, 152, 80, 0.15);
+}
+
+.info-item-link:hover .info-text h3 {
+  color: var(--color-gold);
 }
 
 .info-text h3 {
@@ -1822,50 +1834,62 @@ textarea:focus-visible {
 
   .atuacao-details {
     padding: 0 !important;
+    margin: 0 !important;
   }
 
   .page-banner {
     padding: 7rem 1.5rem 2rem !important;
   }
 
-  /* Accordion Responsivo para a Página de Atuação */
+  /* Accordion Responsivo para a Página de Atuação sem Espaços Sobrando */
   .panes {
     height: auto !important;
+    min-height: 0 !important;
     display: block !important;
     border: none !important;
-    margin-bottom: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .panes__wrapper {
     display: flex;
     flex-direction: column;
     height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .panes__item {
     position: relative !important;
     left: 0 !important;
     width: 100% !important;
     height: auto !important;
+    min-height: 0 !important;
     display: flex;
     flex-direction: column;
     border-right: none !important;
     border-bottom: 1px solid var(--color-bronze);
+    margin: 0 !important;
+  }
+  .panes__item:last-child {
+    border-bottom: none !important;
   }
   .panes__vertical-trigger {
     width: 100% !important;
-    height: 65px !important;
+    height: 60px !important;
+    min-height: 60px !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 0 1.5rem !important;
+    padding: 0 1.25rem !important;
   }
   .panes__index {
     margin-bottom: 0 !important;
-    font-size: 1.2rem !important;
+    font-size: 1.15rem !important;
   }
   .panes__vertical-title {
     writing-mode: horizontal-tb !important;
     text-orientation: mixed;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -1885,20 +1909,76 @@ textarea:focus-visible {
     visibility: hidden;
     display: flex;
     flex-direction: column;
-    transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
   }
   .panes__item.active .panes__content-wrapper {
-    max-height: 1000px;
+    max-height: 1200px;
     opacity: 1;
     visibility: visible;
   }
   .panes__text-box {
     max-width: 100% !important;
-    padding: 2.5rem 1.5rem !important;
+    padding: 2.25rem 1.25rem !important;
   }
   .panes__media {
-    height: 250px !important;
+    height: 240px !important;
     width: 100% !important;
+  }
+
+  /* Centralização e Ajustes de Formulario e Icones de Contato no Mobile */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .contact-form-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2.25rem 1.5rem !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    border-radius: var(--border-radius-md);
+  }
+
+  .info-items {
+    gap: 1.5rem !important;
+    margin: 2rem 0 !important;
+  }
+
+  .info-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .info-icon {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    font-size: 1.15rem !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .info-text {
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .info-text h3 {
+    font-size: 1.05rem !important;
+  }
+
+  .info-text p {
+    font-size: 0.9rem !important;
+    word-break: break-word !important;
   }
 }
 
