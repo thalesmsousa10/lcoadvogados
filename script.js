@@ -243,9 +243,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Se houve parâmetro pilar, rolar suavemente até a seção dos painéis
     if (pilarParam) {
-      setTimeout(() => {
-        panesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 350);
+      const scrollToPanes = () => {
+        const targetElement = document.querySelector('.atuacao-details') || panesContainer;
+        if (targetElement) {
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      };
+      setTimeout(scrollToPanes, 350);
+      setTimeout(scrollToPanes, 800);
+      window.addEventListener('load', () => setTimeout(scrollToPanes, 500));
     }
 
     // Adicionar eventos de clique nos triggers
