@@ -1,0 +1,11 @@
+# ======================================================================
+# LCO Advocacia Empresarial — Diretivas para Mecanismos de Busca
+# ======================================================================
+
+User-agent: *
+Allow: /
+Disallow: /privacidade.html
+Disallow: /termos.html
+Disallow: /.htaccess
+
+Sitemap: https://www.advogadoslco.com.br/sitemap.xml

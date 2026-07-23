@@ -11,21 +11,73 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <!-- Meta Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- FontAwesome Icons com SRI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./Imagens/favicon.png">
   <link rel="apple-touch-icon" href="./Imagens/favicon.png">
   
-  <!-- SEO: Open Graph e Canonical -->
+  <!-- SEO: Open Graph, Twitter Cards e Canonical -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.advogadoslco.com.br/">
   <meta property="og:title" content="LCO Advocacia Empresarial | Inteligência Tributária e Societária">
   <meta property="og:description" content="Boutique jurídica de alta performance especializada em Direito Tributário, Societário, Contratos e Holdings.">
-  <meta property="og:image" content="https://www.advogadoslco.com.br/Imagens/LCO%203D.png">
+  <meta property="og:image" content="https://www.advogadoslco.com.br/Imagens/lco-3d.png">
   <meta property="og:locale" content="pt_BR">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LCO Advocacia Empresarial | Inteligência Tributária e Societária">
+  <meta name="twitter:description" content="Boutique jurídica de alta performance especializada em Direito Tributário, Societário, Contratos e Holdings.">
+  <meta name="twitter:image" content="https://www.advogadoslco.com.br/Imagens/lco-3d.png">
+  
   <link rel="canonical" href="https://www.advogadoslco.com.br/">
+
+  <!-- Dados Estruturados Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "LCO Advocacia Empresarial",
+    "alternateName": "LCO Advogados",
+    "url": "https://www.advogadoslco.com.br/",
+    "logo": "https://www.advogadoslco.com.br/Imagens/lco-3d.png",
+    "image": "https://www.advogadoslco.com.br/Imagens/lco-3d.png",
+    "description": "Boutique jurídica de alta performance especializada em Direito Tributário, Societário, Contratos e Planejamento Patrimonial e Sucessório.",
+    "telephone": "+55-11-91454-8956",
+    "email": "atendimento@advogadoslco.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Brig. Faria Lima, 1572, sala 1022, Jardim Paulistano",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01451-917",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-23.5707",
+      "longitude": "-46.6917"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:30",
+      "closes": "18:30"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/lu%C3%ADs-fernando-costa-oliveira-b01384b0/",
+      "https://www.instagram.com/luisscostaoliveira/",
+      "https://www.facebook.com/profile.php?id=100076399505576",
+      "https://www.youtube.com/@luisscostaoliveiraadv",
+      "https://www.tiktok.com/@luisscostaoliveira"
+    ],
+    "priceRange": "$$$"
+  }
+  </script>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css?v=20260723">
@@ -64,7 +116,7 @@
     <div class="header-main">
       <div class="container header-container">
         <a href="index.html" class="logo-link" aria-label="LCO Advocacia Home">
-          <img src="./Imagens/LCO 3D.png" alt="LCO Advocacia Empresarial" class="logo-img">
+          <img src="./Imagens/lco-3d.png" alt="LCO Advocacia Empresarial" class="logo-img">
         </a>
         
         <!-- Navegação Principal Multipáginas -->
@@ -302,7 +354,7 @@
     <div class="footer-top">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <a href="index.html"><img src="./Imagens/LCO 3D.png" alt="LCO Advocacia Empresarial" class="footer-logo"></a>
+          <a href="index.html"><img src="./Imagens/lco-3d.png" alt="LCO Advocacia Empresarial" class="footer-logo"></a>
           <p class="footer-desc">Boutique jurídica especializada em Direito Tributário, Societário, Contratos e Planejamento Patrimonial e Sucessório.</p>
           <div class="footer-social">
             <a href="https://www.linkedin.com/in/lu%C3%ADs-fernando-costa-oliveira-b01384b0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>

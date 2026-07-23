@@ -81,12 +81,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toast = document.createElement('div');
     toast.className = `lco-toast lco-toast--${type}`;
-    toast.innerHTML = `
-      <div class="lco-toast__content">
-        <i class="fa-solid ${type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check'} lco-toast__icon"></i>
-        <p class="lco-toast__message">${message}</p>
-      </div>
-    `;
+
+    const content = document.createElement('div');
+    content.className = 'lco-toast__content';
+
+    const icon = document.createElement('i');
+    icon.className = `fa-solid ${type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check'} lco-toast__icon`;
+
+    const msg = document.createElement('p');
+    msg.className = 'lco-toast__message';
+    msg.textContent = message;
+
+    content.appendChild(icon);
+    content.appendChild(msg);
+    toast.appendChild(content);
     document.body.appendChild(toast);
 
     // Entrada animada
@@ -117,42 +125,82 @@ document.addEventListener('DOMContentLoaded', () => {
       const phoneInput = document.getElementById('phone');
       const areaSelect = document.getElementById('area');
       const messageInput = document.getElementById('message');
+      const honeypotInput = document.getElementById('website');
+
+      // Verificação Honeypot Anti-Spam (bots preenchem este campo oculto)
+      if (honeypotInput && honeypotInput.value.trim() !== '') {
+        // Silenciosamente rejeitar — não exibir erro para não dar pistas ao bot
+        console.warn('Envio bloqueado: detecção de bot.');
+        return;
+      }
 
       let isValid = true;
 
+      // Helper: exibir/remover mensagem de erro inline em um campo
+      const setFieldError = (input, errorMsg) => {
+        if (!input) return;
+        input.style.borderColor = '#ff4d4d';
+        // Remover erro anterior se existir
+        const parent = input.closest('.form-group');
+        if (parent) {
+          const existingError = parent.querySelector('.field-error');
+          if (existingError) existingError.remove();
+          if (errorMsg) {
+            const errorEl = document.createElement('span');
+            errorEl.className = 'field-error';
+            errorEl.textContent = errorMsg;
+            errorEl.style.cssText = 'display:block;color:#ff4d4d;font-size:0.8rem;margin-top:4px;font-family:var(--font-main);';
+            parent.appendChild(errorEl);
+          }
+        }
+      };
+
+      const clearFieldError = (input) => {
+        if (!input) return;
+        input.style.borderColor = '';
+        const parent = input.closest('.form-group');
+        if (parent) {
+          const existingError = parent.querySelector('.field-error');
+          if (existingError) existingError.remove();
+        }
+      };
+
       // Resetar estilos de erro anteriores
       [nameInput, emailInput, phoneInput, areaSelect, messageInput].forEach(input => {
-        if (input) input.style.borderColor = '';
+        clearFieldError(input);
       });
 
       // Validação do Nome
       if (!nameInput.value.trim()) {
-        nameInput.style.borderColor = '#ff4d4d';
+        setFieldError(nameInput, 'Por favor, informe seu nome completo.');
         isValid = false;
       }
 
       // Validação simples de E-mail
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
-        emailInput.style.borderColor = '#ff4d4d';
+      if (!emailInput.value.trim()) {
+        setFieldError(emailInput, 'Por favor, informe seu e-mail.');
+        isValid = false;
+      } else if (!emailRegex.test(emailInput.value.trim())) {
+        setFieldError(emailInput, 'Formato de e-mail inválido.');
         isValid = false;
       }
 
       // Validação de Telefone
       if (!phoneInput.value.trim()) {
-        phoneInput.style.borderColor = '#ff4d4d';
+        setFieldError(phoneInput, 'Por favor, informe seu telefone.');
         isValid = false;
       }
 
       // Validação da Área de Interesse (Select)
       if (areaSelect && !areaSelect.value) {
-        areaSelect.style.borderColor = '#ff4d4d';
+        setFieldError(areaSelect, 'Por favor, selecione uma área de interesse.');
         isValid = false;
       }
 
       // Validação de Mensagem
       if (!messageInput.value.trim()) {
-        messageInput.style.borderColor = '#ff4d4d';
+        setFieldError(messageInput, 'Por favor, descreva brevemente seu caso.');
         isValid = false;
       }
 
@@ -355,7 +403,7 @@ document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
   if (
     href &&
-    href.match(/\.html$/) &&
+    href.match(/\.html(\?|$)/) &&
     !href.startsWith('http') &&
     !href.startsWith('//') &&
     !href.startsWith('mailto') &&

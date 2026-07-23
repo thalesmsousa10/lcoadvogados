@@ -11,19 +11,81 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <!-- Meta Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- FontAwesome Icons com SRI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./Imagens/favicon.png">
-  <!-- SEO: Open Graph e Canonical -->
+  <link rel="apple-touch-icon" href="./Imagens/favicon.png">
+  
+  <!-- SEO: Open Graph, Twitter Cards e Canonical -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.advogadoslco.com.br/artigos.html">
   <meta property="og:title" content="Artigos | LCO Advocacia Empresarial">
   <meta property="og:description" content="Artigos e análises sobre decisões jurídicas, mudanças na legislação e temas do dia a dia.">
-  <meta property="og:image" content="https://www.advogadoslco.com.br/Imagens/LCO%203D.png">
+  <meta property="og:image" content="https://www.advogadoslco.com.br/Imagens/lco-3d.png">
   <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Artigos | LCO Advocacia Empresarial">
+  <meta name="twitter:description" content="Artigos e análises sobre decisões jurídicas, mudanças na legislação e temas do dia a dia.">
+  <meta name="twitter:image" content="https://www.advogadoslco.com.br/Imagens/lco-3d.png">
+
   <link rel="canonical" href="https://www.advogadoslco.com.br/artigos.html">
+
+  <!-- Dados Estruturados Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Artigos LCO Advocacia Empresarial",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Article",
+          "headline": "Reestruturação e Governança no Crescimento Empresarial",
+          "description": "Análise estratégica sobre reorganização societária e governança para sustentar a expansão segura dos negócios.",
+          "author": { "@type": "Organization", "name": "LCO Advocacia Empresarial" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Article",
+          "headline": "Acordo de Sócios como Ferramenta de Prevenção de Conflitos",
+          "description": "Como alinhar expectativas, regrar retiradas e prevenir disputas societárias com um instrumento bem redigido.",
+          "author": { "@type": "Organization", "name": "LCO Advocacia Empresarial" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Article",
+          "headline": "Impactos da Reforma Tributária no Planejamento Fiscal de Empresas",
+          "description": "Quais mudanças exigem adequação imediata para reduzir riscos e aproveitar oportunidades fiscais.",
+          "author": { "@type": "Organization", "name": "LCO Advocacia Empresarial" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Article",
+          "headline": "Holdings Familiares e Proteção de Ativos de Sucessão",
+          "description": "Estruturação patrimonial para perpetuidade da família e eficiência tributária na transmissão de bens.",
+          "author": { "@type": "Organization", "name": "LCO Advocacia Empresarial" }
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css?v=20260723">
@@ -62,7 +124,7 @@
     <div class="header-main">
       <div class="container header-container">
         <a href="index.html" class="logo-link" aria-label="LCO Advocacia Home">
-          <img src="./Imagens/LCO 3D.png" alt="LCO Advocacia Empresarial" class="logo-img">
+          <img src="./Imagens/lco-3d.png" alt="LCO Advocacia Empresarial" class="logo-img">
         </a>
         
         <!-- Navegação Principal Multipáginas -->
@@ -214,7 +276,7 @@
     <div class="footer-top">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <a href="index.html"><img src="./Imagens/LCO 3D.png" alt="LCO Advocacia Empresarial" class="footer-logo"></a>
+          <a href="index.html"><img src="./Imagens/lco-3d.png" alt="LCO Advocacia Empresarial" class="footer-logo"></a>
           <p class="footer-desc">Boutique jurídica especializada em Direito Tributário, Societário, Contratos e Planejamento Patrimonial e Sucessório.</p>
           <div class="footer-social">
             <a href="https://www.linkedin.com/in/lu%C3%ADs-fernando-costa-oliveira-b01384b0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
